@@ -75,7 +75,7 @@ export const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-2 text-sm">
-                <Mail className="w-4 h-4 text-orange-400" />
+                <Mail className="w-4 h-4 text-yellow-400" />
                 <span className="text-gray-300">{companyInfo.email}</span>
               </div>
               
