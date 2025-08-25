@@ -24,110 +24,253 @@ export const HangarAnimation = () => {
 
   return (
     <div className="relative w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-      {/* Animated background particles */}
+      {/* Enhanced animated background particles */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-yellow-400 rounded-full opacity-70 animate-pulse"
+            className="absolute bg-yellow-400 rounded-full opacity-60"
             style={{
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 2}s`,
-              animationDuration: `${2 + Math.random() * 3}s`
+              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 2}s`
             }}
           />
         ))}
       </div>
 
-      {/* 3D Hangar Structure */}
+      {/* Ground with perspective */}
+      <div className="absolute bottom-0 w-full h-20 bg-gradient-to-t from-gray-800 to-transparent opacity-50"></div>
+
+      {/* 3D Realistic Hangar Structure */}
       <div className="absolute inset-0 flex items-center justify-center perspective-1000">
         <div className="relative transform-gpu" style={{ transformStyle: 'preserve-3d' }}>
           
-          {/* Main Hangar Body with 3D effect */}
-          <div className="relative">
-            {/* Foundation */}
-            <div className="absolute bottom-0 w-80 h-6 bg-gradient-to-r from-gray-600 to-gray-700 rounded-md shadow-2xl transform rotate-x-60 animate-fade-in-up" 
-                 style={{ animationDelay: '0.5s' }}>
-            </div>
+          {/* Enhanced Foundation with concrete texture */}
+          <div className="absolute bottom-0 w-96 h-8 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 rounded-sm shadow-2xl animate-fade-in-up" 
+               style={{ 
+                 animationDelay: '0.5s',
+                 background: 'linear-gradient(90deg, #6b7280 0%, #4b5563 50%, #6b7280 100%)',
+                 boxShadow: '0 10px 25px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1)'
+               }}>
+            {/* Foundation texture lines */}
+            {[...Array(8)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute top-0 w-px h-full bg-gray-400 opacity-30"
+                style={{ left: `${(i + 1) * 12}%` }}
+              />
+            ))}
+          </div>
 
-            {/* Left Wall */}
-            <div className="absolute bottom-6 left-0 w-2 h-32 bg-gradient-to-b from-yellow-400 to-yellow-600 transform -skew-y-12 animate-fade-in-up shadow-lg"
-                 style={{ animationDelay: '1s' }}>
-            </div>
+          {/* Enhanced Left Wall with metal panels */}
+          <div className="absolute bottom-8 left-4 w-3 h-36 animate-fade-in-up shadow-xl"
+               style={{ 
+                 animationDelay: '1s',
+                 background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 30%, #d97706 70%, #fbbf24 100%)',
+                 transform: 'skewY(-8deg)',
+                 boxShadow: '2px 0 8px rgba(0,0,0,0.3), inset 1px 0 2px rgba(255,255,255,0.2)'
+               }}>
+            {/* Vertical metal ridges */}
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute left-0 w-full h-px bg-yellow-300 opacity-40"
+                style={{ top: `${i * 16}%` }}
+              />
+            ))}
+          </div>
 
-            {/* Right Wall */}
-            <div className="absolute bottom-6 right-0 w-2 h-32 bg-gradient-to-b from-yellow-400 to-yellow-600 transform skew-y-12 animate-fade-in-up shadow-lg"
-                 style={{ animationDelay: '1.2s' }}>
-            </div>
+          {/* Enhanced Right Wall with metal panels */}
+          <div className="absolute bottom-8 right-4 w-3 h-36 animate-fade-in-up shadow-xl"
+               style={{ 
+                 animationDelay: '1.2s',
+                 background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 30%, #d97706 70%, #fbbf24 100%)',
+                 transform: 'skewY(8deg)',
+                 boxShadow: '-2px 0 8px rgba(0,0,0,0.3), inset -1px 0 2px rgba(255,255,255,0.2)'
+               }}>
+            {/* Vertical metal ridges */}
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute left-0 w-full h-px bg-yellow-300 opacity-40"
+                style={{ top: `${i * 16}%` }}
+              />
+            ))}
+          </div>
 
-            {/* Main Structure */}
-            <div className="relative w-80 h-32 bg-gradient-to-br from-gray-300 via-gray-200 to-gray-100 rounded-t-full border-4 border-yellow-500 shadow-2xl animate-fade-in-up"
-                 style={{ 
-                   animationDelay: '1.5s',
-                   background: 'linear-gradient(135deg, rgba(250,181,21,0.2) 0%, rgba(255,255,255,0.8) 50%, rgba(250,181,21,0.2) 100%)'
-                 }}>
+          {/* Main Realistic Hangar Structure */}
+          <div className="relative w-96 h-36 rounded-t-full animate-fade-in-up shadow-2xl"
+               style={{ 
+                 animationDelay: '1.5s',
+                 background: `
+                   linear-gradient(180deg, 
+                     rgba(243, 244, 246, 0.9) 0%,
+                     rgba(229, 231, 235, 0.8) 25%,
+                     rgba(209, 213, 219, 0.7) 50%,
+                     rgba(156, 163, 175, 0.8) 75%,
+                     rgba(107, 114, 128, 0.9) 100%
+                   ),
+                   repeating-linear-gradient(
+                     90deg,
+                     transparent 0px,
+                     rgba(250, 181, 21, 0.1) 1px,
+                     rgba(250, 181, 21, 0.1) 2px,
+                     transparent 3px,
+                     transparent 12px
+                   )
+                 `,
+                 border: '3px solid #fbbf24',
+                 boxShadow: `
+                   0 20px 40px rgba(0,0,0,0.4),
+                   inset 0 2px 4px rgba(255,255,255,0.2),
+                   inset 0 -2px 4px rgba(0,0,0,0.1)
+                 `
+               }}>
               
-              {/* Roof Ribs */}
-              {[...Array(8)].map((_, i) => (
+              {/* Enhanced Roof Structure with realistic metal ribs */}
+              {[...Array(12)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute top-0 w-1 h-full bg-yellow-500 opacity-80 animate-fade-in-up"
+                  className="absolute top-0 w-1 h-full animate-fade-in-up"
                   style={{
-                    left: `${12.5 * (i + 1)}%`,
-                    animationDelay: `${2 + i * 0.1}s`,
-                    transform: 'rotateZ(0deg)',
-                    borderRadius: '2px'
+                    left: `${8 * (i + 1)}%`,
+                    animationDelay: `${2 + i * 0.08}s`,
+                    background: 'linear-gradient(180deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)',
+                    borderRadius: '1px',
+                    boxShadow: '1px 0 2px rgba(0,0,0,0.3), inset 0 0 1px rgba(255,255,255,0.3)'
                   }}
                 />
               ))}
 
-              {/* Door */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-20 bg-gradient-to-b from-gray-800 to-gray-900 rounded-t-lg animate-fade-in-up shadow-inner"
-                   style={{ animationDelay: '3s' }}>
-                <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+              {/* Realistic Industrial Door */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-24 animate-fade-in-up"
+                   style={{ 
+                     animationDelay: '3s',
+                     background: `
+                       linear-gradient(180deg, 
+                         #374151 0%, 
+                         #1f2937 50%, 
+                         #111827 100%
+                       )
+                     `,
+                     borderRadius: '4px 4px 0 0',
+                     boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), 0 0 8px rgba(0,0,0,0.5)'
+                   }}>
+                {/* Door panels */}
+                {[...Array(4)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="absolute w-full h-px bg-gray-600 opacity-60"
+                    style={{ top: `${(i + 1) * 20}%` }}
+                  />
+                ))}
+                {/* Door handle */}
+                <div className="absolute top-12 right-2 w-2 h-3 bg-yellow-500 rounded-sm shadow-sm"></div>
+                {/* Door lock */}
+                <div className="absolute top-14 right-3 w-1 h-1 bg-gray-300 rounded-full"></div>
               </div>
 
-              {/* Windows */}
+              {/* Enhanced Realistic Windows */}
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute animate-fade-in-up"
+                  style={{
+                    width: '8px',
+                    height: '6px',
+                    top: '24px',
+                    left: `${15 + i * 30}px`,
+                    animationDelay: `${3.2 + i * 0.08}s`,
+                    background: `
+                      linear-gradient(135deg, 
+                        rgba(96, 165, 250, 0.8) 0%,
+                        rgba(59, 130, 246, 0.9) 50%,
+                        rgba(37, 99, 235, 1) 100%
+                      )
+                    `,
+                    borderRadius: '1px',
+                    border: '1px solid #1e40af',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.3), 0 1px 3px rgba(0,0,0,0.3)'
+                  }}
+                >
+                  {/* Window reflection */}
+                  <div 
+                    className="absolute top-0 left-0 w-3 h-2 bg-white opacity-20 rounded-tl-sm"
+                  />
+                </div>
+              ))}
+
+              {/* Metal joint connections */}
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-6 h-4 bg-gradient-to-br from-blue-300 to-blue-500 rounded animate-fade-in-up shadow-lg"
+                  className="absolute w-2 h-2 bg-gray-400 rounded-full animate-fade-in-up"
                   style={{
-                    top: '20px',
-                    left: `${20 + i * 35}px`,
-                    animationDelay: `${3.2 + i * 0.1}s`
+                    bottom: '10px',
+                    left: `${20 + i * 40}px`,
+                    animationDelay: `${3.5 + i * 0.1}s`,
+                    boxShadow: 'inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)'
                   }}
                 />
               ))}
             </div>
 
-            {/* Crane Animation */}
-            <div className="absolute -top-16 left-1/4 transform -translate-x-1/2 animate-fade-in-up"
+            {/* Enhanced Construction Crane */}
+            <div className="absolute -top-20 left-1/3 transform -translate-x-1/2 animate-fade-in-up"
                  style={{ animationDelay: '2.5s' }}>
-              <div className="w-1 h-16 bg-yellow-600 relative">
-                <div className="absolute top-0 -left-8 w-16 h-1 bg-yellow-600"></div>
-                <div className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              {/* Crane mast */}
+              <div className="w-1 h-20 bg-yellow-600 relative shadow-lg"
+                   style={{ 
+                     background: 'linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #d97706 100%)',
+                     boxShadow: '1px 0 3px rgba(0,0,0,0.3)'
+                   }}>
+                {/* Crane arm */}
+                <div className="absolute top-2 -left-10 w-20 h-1 bg-yellow-600"
+                     style={{ 
+                       background: 'linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #d97706 100%)',
+                       boxShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                     }}></div>
+                {/* Hook */}
+                <div className="absolute top-2 right-8 w-1 h-4 bg-gray-400"></div>
+                <div className="absolute top-6 right-8 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-lg"></div>
               </div>
             </div>
 
-            {/* Construction Vehicles */}
-            <div className="absolute -bottom-2 -right-16 animate-fade-in-up"
+            {/* Enhanced Construction Vehicle */}
+            <div className="absolute -bottom-4 -right-20 animate-fade-in-up"
                  style={{ animationDelay: '3.5s' }}>
-              <div className="w-12 h-6 bg-yellow-500 rounded-sm relative">
-                <div className="absolute -bottom-1 left-1 w-3 h-3 bg-gray-800 rounded-full"></div>
-                <div className="absolute -bottom-1 right-1 w-3 h-3 bg-gray-800 rounded-full"></div>
+              <div className="w-16 h-8 relative"
+                   style={{ 
+                     background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)',
+                     borderRadius: '2px',
+                     boxShadow: '0 3px 6px rgba(0,0,0,0.3)'
+                   }}>
+                {/* Vehicle cab */}
+                <div className="absolute -top-2 left-2 w-6 h-3 bg-gray-700 rounded-t-sm"></div>
+                {/* Wheels */}
+                <div className="absolute -bottom-1 left-2 w-4 h-4 bg-gray-900 rounded-full"
+                     style={{ boxShadow: 'inset 0 0 4px rgba(0,0,0,0.5)' }}>
+                  <div className="absolute inset-1 border border-gray-600 rounded-full"></div>
+                </div>
+                <div className="absolute -bottom-1 right-2 w-4 h-4 bg-gray-900 rounded-full"
+                     style={{ boxShadow: 'inset 0 0 4px rgba(0,0,0,0.5)' }}>
+                  <div className="absolute inset-1 border border-gray-600 rounded-full"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Stage Indicator */}
+      {/* Enhanced Stage Indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-        <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-white/20">
+        <div className="glass-dark px-6 py-3 rounded-full shadow-xl border border-white/20">
           <div className="flex items-center space-x-3">
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${stages[animationStage].color} flex items-center justify-center animate-pulse`}>
+            <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${stages[animationStage].color} flex items-center justify-center animate-pulse shadow-lg`}>
               <CurrentIcon className="w-5 h-5 text-white" />
             </div>
             <span className="text-white font-semibold text-sm">
@@ -137,29 +280,29 @@ export const HangarAnimation = () => {
         </div>
       </div>
 
-      {/* Progress Bar */}
+      {/* Enhanced Progress Bar */}
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-64">
-        <div className="w-full bg-white/20 rounded-full h-2 backdrop-blur-sm">
+        <div className="w-full bg-white/20 rounded-full h-2 backdrop-blur-sm shadow-inner">
           <div 
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600 h-2 rounded-full transition-all duration-700 shadow-lg"
+            className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 h-2 rounded-full transition-all duration-700 shadow-lg animate-glow"
             style={{ width: `${((animationStage + 1) / 4) * 100}%` }}
           />
         </div>
       </div>
 
-      {/* Floating Elements */}
+      {/* Enhanced Floating Elements */}
       <div className="absolute top-4 right-4 animate-float">
-        <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg shadow-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg shadow-xl flex items-center justify-center glass">
           <Building2 className="w-4 h-4 text-white" />
         </div>
       </div>
 
       <div className="absolute top-16 left-4 animate-float" style={{ animationDelay: '1s' }}>
-        <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full shadow-lg"></div>
+        <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full shadow-xl glass"></div>
       </div>
 
-      {/* Glow Effects */}
-      <div className="absolute inset-0 bg-gradient-radial from-yellow-500/10 via-transparent to-transparent"></div>
+      {/* Enhanced Glow Effects */}
+      <div className="absolute inset-0 bg-gradient-radial from-yellow-500/10 via-transparent to-transparent pointer-events-none"></div>
     </div>
   );
 };
