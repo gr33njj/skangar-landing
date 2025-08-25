@@ -103,7 +103,7 @@ export const Footer = () => {
               <a href="#" className="hover:text-yellow-400 transition-colors">
                 Политика конфиденциальности
               </a>
-              <a href="#" className="hover:text-orange-400 transition-colors">
+              <a href="#" className="hover:text-yellow-400 transition-colors">
                 Пользовательское соглашение
               </a>
             </div>
