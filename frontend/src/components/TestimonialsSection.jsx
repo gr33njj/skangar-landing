@@ -21,7 +21,7 @@ export const TestimonialsSection = () => {
             <Card key={testimonial.id} className="border-0 bg-white hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <Quote className="w-10 h-10 text-orange-200 mb-4" />
+                  <Quote className="w-10 h-10 text-yellow-200 mb-4" />
                   <p className="text-gray-700 leading-relaxed italic">
                     "{testimonial.text}"
                   </p>
