@@ -147,7 +147,7 @@ export const ContactsSection = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white group"
+                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white group"
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                     Получить расчет стоимости
