@@ -70,7 +70,7 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Контакты</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm">
-                <Phone className="w-4 h-4 text-orange-400" />
+                <Phone className="w-4 h-4 text-yellow-400" />
                 <span className="text-gray-300">{companyInfo.phone}</span>
               </div>
               
