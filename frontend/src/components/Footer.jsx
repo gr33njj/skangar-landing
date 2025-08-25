@@ -44,7 +44,7 @@ export const Footer = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block text-gray-300 hover:text-orange-400 transition-colors duration-200 text-sm"
+                  className="block text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-sm"
                 >
                   {item.name}
                 </button>
