@@ -66,7 +66,7 @@ export const AdvantagesSection = () => {
                 'Сдача объекта'
               ].map((step, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                  <div className="w-12 h-12 bg-yellow-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
                     {index + 1}
                   </div>
                   <p className="text-sm font-medium text-gray-700">{step}</p>
