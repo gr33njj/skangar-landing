@@ -89,7 +89,7 @@ export const ServicesSection = () => {
               <Button 
                 size="lg"
                 onClick={scrollToContacts}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4"
               >
                 Получить консультацию
               </Button>
