@@ -85,7 +85,7 @@ export const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-2 text-sm">
-                <Clock className="w-4 h-4 text-orange-400" />
+                <Clock className="w-4 h-4 text-yellow-400" />
                 <span className="text-gray-300">{companyInfo.workingHours}</span>
               </div>
             </div>
