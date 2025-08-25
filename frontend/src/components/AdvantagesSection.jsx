@@ -47,7 +47,7 @@ export const AdvantagesSection = () => {
         </div>
 
         {/* Additional value proposition */}
-        <div className="mt-16 bg-gradient-to-r from-orange-50 to-orange-100 rounded-3xl p-8 md:p-12">
+        <div className="mt-16 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-3xl p-8 md:p-12">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
               Полный цикл строительства
