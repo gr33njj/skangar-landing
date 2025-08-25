@@ -32,7 +32,7 @@ export const ProjectsSection = () => {
               <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
-                  <Badge className="bg-orange-600 text-white">
+                  <Badge className="bg-yellow-600 text-white">
                     {project.type}
                   </Badge>
                 </div>
