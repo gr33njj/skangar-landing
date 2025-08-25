@@ -217,7 +217,7 @@ export const ContactsSection = () => {
             </Card>
 
             {/* Quick facts */}
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-50 to-orange-100">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-yellow-50 to-yellow-100">
               <CardContent className="p-6">
                 <h3 className="font-bold text-gray-900 mb-4">Быстрые факты</h3>
                 <div className="space-y-3 text-sm">
