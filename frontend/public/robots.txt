@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Разрешаем индексирование всех страниц
+Allow: /static/
+Allow: /images/
+
+# Запрещаем индексирование служебных файлов
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /manifest.json
+Disallow: /favicon.ico
+
+# Указываем расположение карты сайта
+Sitemap: https://angastr.ru/sitemap.xml
+
+# Время ожидания между запросами (в секундах)
+Crawl-delay: 1
