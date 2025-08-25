@@ -29,7 +29,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">А</span>
             </div>
             <div>
@@ -44,7 +44,7 @@ export const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium"
               >
                 {item.name}
               </button>
@@ -59,7 +59,7 @@ export const Header = () => {
             </div>
             <Button 
               onClick={() => scrollToSection('contacts')}
-              className="bg-orange-600 hover:bg-orange-700 text-white"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white btn-primary"
             >
               Получить расчет
             </Button>
@@ -75,7 +75,7 @@ export const Header = () => {
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col space-y-6 mt-8">
                 <div className="flex items-center space-x-2 pb-4 border-b">
-                  <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold">А</span>
                   </div>
                   <span className="font-bold text-gray-900">{companyInfo.name}</span>
@@ -86,7 +86,7 @@ export const Header = () => {
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
-                      className="text-left text-gray-700 hover:text-orange-600 transition-colors duration-200 font-medium py-2"
+                      className="text-left text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium py-2"
                     >
                       {item.name}
                     </button>
@@ -104,7 +104,7 @@ export const Header = () => {
                   </div>
                   <Button 
                     onClick={() => scrollToSection('contacts')}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white"
+                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white btn-primary"
                   >
                     Получить расчет
                   </Button>

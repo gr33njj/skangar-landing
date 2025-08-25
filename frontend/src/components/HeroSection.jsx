@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Building2, Clock, Shield } from 'lucide-react';
 import { companyInfo, stats } from '../data/mock';
+import { HangarAnimation } from './HangarAnimation';
 
 export const HeroSection = () => {
   const scrollToSection = (sectionId) => {
@@ -15,7 +16,7 @@ export const HeroSection = () => {
     <section id="hero" className="relative min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-orange-100 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-yellow-100 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
       </div>
 
@@ -24,14 +25,14 @@ export const HeroSection = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium">
                 <Building2 className="w-4 h-4" />
                 <span>Строительство под ключ</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Каркасные ангары
-                <span className="text-orange-600 block">любой сложности</span>
+                <span className="text-yellow-600 block">любой сложности</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
@@ -77,7 +78,7 @@ export const HeroSection = () => {
               <Button 
                 size="lg"
                 onClick={() => scrollToSection('contacts')}
-                className="bg-orange-600 hover:bg-orange-700 text-white text-lg px-8 py-4 group"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white text-lg px-8 py-4 group shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Получить расчет стоимости
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -87,28 +88,35 @@ export const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('projects')}
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 text-lg px-8 py-4"
+                className="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-50 text-lg px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Посмотреть проекты
               </Button>
             </div>
           </div>
 
-          {/* Stats Grid */}
+          {/* 3D Animation */}
           <div className="lg:ml-8">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="mb-8 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+              <div className="h-80">
+                <HangarAnimation />
+              </div>
+            </div>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
               {stats.map((stat) => (
-                <div key={stat.id} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div key={stat.id} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-orange-600 mb-2">{stat.number}</div>
-                    <div className="text-gray-600 font-medium">{stat.label}</div>
+                    <div className="text-3xl font-bold text-yellow-600 mb-2">{stat.number}</div>
+                    <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
                   </div>
                 </div>
               ))}
             </div>
             
             {/* Trust indicators */}
-            <div className="mt-8 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+            <div className="mt-6 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
               <div className="text-center">
                 <h3 className="font-bold text-gray-900 mb-2">Работаем по всему Краснодарскому краю</h3>
                 <p className="text-gray-600 text-sm">Выезд специалиста для замеров - бесплатно</p>
