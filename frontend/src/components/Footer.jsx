@@ -80,7 +80,7 @@ export const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-2 text-sm">
-                <MapPin className="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-yellow-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300">{companyInfo.address}</span>
               </div>
               
