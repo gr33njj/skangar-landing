@@ -98,7 +98,7 @@ export const ServicesSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={scrollToContacts}
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4"
+                className="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-50 px-8 py-4"
               >
                 Заказать расчет
               </Button>
