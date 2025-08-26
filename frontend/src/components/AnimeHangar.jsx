@@ -99,7 +99,7 @@ export const AnimeHangar = () => {
       opacity: [0, 1],
       scaleY: [0, 1],
       duration: 600,
-      delay: anime.stagger(80, {from: 'center'}),
+      delay: stagger(80, {from: 'center'}),
       easing: 'easeOutQuart'
     }, '-=800');
 
