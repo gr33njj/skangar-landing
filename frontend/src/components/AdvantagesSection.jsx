@@ -1,12 +1,12 @@
 import React from 'react';
-import { Zap, ShieldCheck, Award, Key } from 'lucide-react';
+import { Clock, Shield, Settings, Building2 } from 'lucide-react';
 import { advantages } from '../data/mock';
 
 const iconMap = {
-  zap: Zap,
-  'shield-check': ShieldCheck,
-  award: Award,
-  key: Key
+  Clock: Clock,
+  Shield: Shield,
+  Settings: Settings,
+  Building2: Building2
 };
 
 export const AdvantagesSection = () => {
