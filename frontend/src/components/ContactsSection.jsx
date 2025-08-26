@@ -72,10 +72,8 @@ export const ContactsSection = () => {
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      toast({
-        title: "Ошибка отправки",
-        description: "Произошла ошибка при отправке формы. Попробуйте позже.",
-        variant: "destructive"
+      toast.error("Ошибка отправки", {
+        description: "Произошла ошибка при отправке формы. Попробуйте позже."
       });
     } finally {
       setIsSubmitting(false);
