@@ -184,12 +184,14 @@ export const RealisticHangar = () => {
               />
             ))}
 
-            {/* ДВЕРЬ НОРМАЛЬНОГО РАЗМЕРА - Stage 3 */}
+            {/* ДВЕРЬ ТОЧНО ПО ЦЕНТРУ - Stage 3 */}
             <div 
-              className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-18 transition-all duration-600 ease-out ${
+              className={`absolute bottom-0 w-16 h-18 transition-all duration-600 ease-out ${
                 isVisible && stage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}
               style={{ 
+                left: '50%',
+                transform: 'translateX(-50%)', // Точно по центру
                 background: 'linear-gradient(180deg, #475569 0%, #334155 50%, #1e293b 100%)',
                 borderRadius: '2px 2px 0 0',
                 border: '1px solid #64748b',
