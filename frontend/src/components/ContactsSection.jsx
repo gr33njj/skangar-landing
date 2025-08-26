@@ -20,7 +20,6 @@ const companyInfo = {
 };
 
 export const ContactsSection = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
