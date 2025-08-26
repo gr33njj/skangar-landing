@@ -205,6 +205,18 @@ frontend:
         agent: "main"
         comment: "All landing page sections working: Header, Hero, Advantages, Services, Projects, Testimonials, Contacts, Footer with #fab515 color scheme."
 
+  - task: "Frontend Backend Integration"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/services/api.js, /app/frontend/src/components/ContactsSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Created API service layer (/app/frontend/src/services/api.js) with 5 API functions: submitContactForm, getCompanyInfo, getServices, getProjects, getContactRequests. Updated ContactsSection.jsx to use real API instead of mock data. Added loading states, error handling, and form validation. Removed /app/frontend/src/data/mock.js file."
+
   - task: "Contact Form Frontend"
     implemented: true
     working: true
