@@ -205,22 +205,22 @@ export const RealisticHangar = () => {
               <div className="absolute top-8 right-1 w-1 h-2 bg-yellow-500 rounded-sm"></div>
             </div>
 
-            {/* ОКНА НА СТЕНАХ АРКИ - Stage 3 */}
-            {[...Array(4)].map((_, i) => (
+            {/* ОКНА НА АРКЕ - Stage 3 */}
+            {[...Array(3)].map((_, i) => (
               <div
                 key={i}
                 className={`absolute transition-all duration-300 ease-out ${
                   isVisible && stage >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                 }`}
                 style={{
-                  width: '4px',
-                  height: '3px',
-                  top: '14px',
-                  left: `${20 + i * 30}px`,
+                  width: '3px',
+                  height: '2px',
+                  top: '12px',
+                  left: `${30 + i * 20}px`, // Только 3 окна по центру
                   background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(29, 78, 216, 1) 100%)',
                   borderRadius: '1px',
                   boxShadow: '0 1px 2px rgba(0,0,0,0.3)',
-                  transitionDelay: `${1 + i * 0.1}s`
+                  transitionDelay: `${1 + i * 0.15}s`
                 }}
               />
             ))}
