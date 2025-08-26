@@ -248,13 +248,9 @@ metadata:
   run_ui: false
 
 test_plan:
-  current_focus:
-    - "Frontend Backend Integration"
-    - "Contact Form Frontend"
-    - "Hangar Animation"
-    - "Landing Page Sections"
+  current_focus: []
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
