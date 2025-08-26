@@ -78,7 +78,7 @@ export const AnimeHangar = () => {
       translateY: [40, 0],
       scaleY: [0, 1],
       duration: 1200,
-      delay: anime.stagger(200),
+      delay: stagger(200),
       easing: 'easeOutBack',
       begin: () => setCurrentStage(1)
     }, '-=200');
