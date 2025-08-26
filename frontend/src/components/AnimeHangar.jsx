@@ -131,7 +131,7 @@ export const AnimeHangar = () => {
       translateY: [20, 0],
       scale: [0, 1],
       duration: 1000,
-      delay: anime.stagger(200),
+      delay: stagger(200),
       easing: 'easeOutElastic(1, .6)'
     }, '-=400');
 
