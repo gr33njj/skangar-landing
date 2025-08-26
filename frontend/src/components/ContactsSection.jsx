@@ -52,9 +52,8 @@ export const ContactsSection = () => {
       const result = await submitContactForm(formData);
       
       if (result.success) {
-        toast({
-          title: "Заявка отправлена!",
-          description: result.data.message || "Мы свяжемся с вами в ближайшее время.",
+        toast.success("Заявка отправлена!", {
+          description: result.data.message || "Мы свяжемся с вами в ближайшее время."
         });
         
         // Reset form
@@ -67,10 +66,8 @@ export const ContactsSection = () => {
           message: ''
         });
       } else {
-        toast({
-          title: "Ошибка отправки",
-          description: result.error || "Произошла ошибка при отправке формы. Попробуйте позже.",
-          variant: "destructive"
+        toast.error("Ошибка отправки", {
+          description: result.error || "Произошла ошибка при отправке формы. Попробуйте позже."
         });
       }
     } catch (error) {
