@@ -140,7 +140,7 @@ export const AnimeHangar = () => {
 
   const restartAnimation = () => {
     // Fade out всех элементов
-    anime({
+    animate({
       targets: '.anime-element',
       opacity: 0,
       scale: 0.9,
