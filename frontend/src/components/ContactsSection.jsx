@@ -37,20 +37,12 @@ export const ContactsSection = () => {
     
     // Basic validation
     if (!formData.name.trim()) {
-      toast({
-        title: "Ошибка",
-        description: "Пожалуйста, введите ваше имя",
-        variant: "destructive"
-      });
+      toast.error("Пожалуйста, введите ваше имя");
       return;
     }
     
     if (!formData.phone.trim()) {
-      toast({
-        title: "Ошибка", 
-        description: "Пожалуйста, введите номер телефона",
-        variant: "destructive"
-      });
+      toast.error("Пожалуйста, введите номер телефона");
       return;
     }
 
