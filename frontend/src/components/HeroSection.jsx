@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Building2, Clock, Shield } from 'lucide-react';
 import { companyInfo, stats } from '../data/mock';
-import { CinematicHangar } from './CinematicHangar';
+import { AnimeHangar } from './AnimeHangar';
 
 export const HeroSection = () => {
   const scrollToSection = (sectionId) => {
