@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import anime from 'animejs';
+import { animate, createTimeline, stagger, eases } from 'animejs';
 import { Building2, Zap, Wrench, Settings } from 'lucide-react';
 
 export const AnimeHangar = () => {
