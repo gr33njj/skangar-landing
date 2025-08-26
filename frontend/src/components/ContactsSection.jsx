@@ -6,8 +6,18 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { companyInfo } from '../data/mock';
 import { useToast } from '../hooks/use-toast';
+import { submitContactForm } from '../services/api';
+
+// Static company info (will be replaced with API call later if needed)
+const companyInfo = {
+  name: "ООО «Ангастр»",
+  address: "352240 г. Краснодар, ул. Восточно-кругликовская, 60",
+  workingHours: "Пн-Пт: 8:00 - 18:00",
+  phone: "+7 (918) 633-32-21",
+  fax: "8(861) 953-40-77",
+  email: "angastr@inbox.ru"
+};
 
 export const ContactsSection = () => {
   const { toast } = useToast();
@@ -19,24 +29,69 @@ export const ContactsSection = () => {
     area: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в течение 30 минут.",
-    });
     
-    // Reset form
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      buildingType: '',
-      area: '',
-      message: ''
-    });
+    if (isSubmitting) return;
+    
+    // Basic validation
+    if (!formData.name.trim()) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, введите ваше имя",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (!formData.phone.trim()) {
+      toast({
+        title: "Ошибка", 
+        description: "Пожалуйста, введите номер телефона",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await submitContactForm(formData);
+      
+      if (result.success) {
+        toast({
+          title: "Заявка отправлена!",
+          description: result.data.message || "Мы свяжемся с вами в ближайшее время.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          buildingType: '',
+          area: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Ошибка отправки",
+          description: result.error || "Произошла ошибка при отправке формы. Попробуйте позже.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Ошибка отправки",
+        description: "Произошла ошибка при отправке формы. Попробуйте позже.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field, value) => {
@@ -76,6 +131,7 @@ export const ContactsSection = () => {
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         placeholder="Введите ваше имя"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                     
@@ -88,6 +144,7 @@ export const ContactsSection = () => {
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="+7 (___) ___-__-__"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -100,13 +157,14 @@ export const ContactsSection = () => {
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="your@email.ru"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="buildingType">Тип здания</Label>
-                      <Select value={formData.buildingType} onValueChange={(value) => handleInputChange('buildingType', value)}>
+                      <Select value={formData.buildingType} onValueChange={(value) => handleInputChange('buildingType', value)} disabled={isSubmitting}>
                         <SelectTrigger>
                           <SelectValue placeholder="Выберите тип" />
                         </SelectTrigger>
@@ -129,6 +187,7 @@ export const ContactsSection = () => {
                         value={formData.area}
                         onChange={(e) => handleInputChange('area', e.target.value)}
                         placeholder="Например: 1000"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -141,16 +200,27 @@ export const ContactsSection = () => {
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       placeholder="Опишите ваши требования к проекту..."
                       rows={4}
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white group"
+                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white group disabled:opacity-50"
+                    disabled={isSubmitting}
                   >
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Получить расчет стоимости
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Отправляем...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                        Получить расчет стоимости
+                      </>
+                    )}
                   </Button>
                   
                   <p className="text-sm text-gray-500 text-center">
