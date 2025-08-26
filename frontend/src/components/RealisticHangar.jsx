@@ -167,19 +167,19 @@ export const RealisticHangar = () => {
             }}
           >
             
-            {/* РЁБРА ЖЁСТКОСТИ СТРОГО ВНУТРИ АРКИ - Stage 3 */}
-            {[...Array(8)].map((_, i) => (
+            {/* РЁБРА ЖЁСТКОСТИ СИММЕТРИЧНО - Stage 3 */}
+            {[...Array(9)].map((_, i) => (
               <div
                 key={i}
                 className={`absolute top-2 w-0.5 transition-all duration-400 ease-out ${
                   isVisible && stage >= 3 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
                 }`}
                 style={{
-                  left: `${20 + i * 7.5}%`,
+                  left: `${15 + i * 8.75}%`, // Симметрично 9 рёбер
                   height: 'calc(100% - 16px)', // Рёбра НЕ доходят до краёв
                   background: 'linear-gradient(180deg, #f59e0b 0%, #d97706 50%, #b45309 100%)',
                   transformOrigin: 'top',
-                  transitionDelay: `${0.3 + Math.abs(4 - i) * 0.08}s`
+                  transitionDelay: `${0.3 + Math.abs(4 - i) * 0.08}s` // От центра (4-й элемент)
                 }}
               />
             ))}
