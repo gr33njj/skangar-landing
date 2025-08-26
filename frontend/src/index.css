@@ -89,7 +89,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom animations */
+/* Professional Hangar Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -106,25 +106,175 @@ html {
   50% { transform: translateY(-10px); }
 }
 
-@keyframes rotate-x-60 {
-  0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(60deg); }
-}
-
-@keyframes glow {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(250, 181, 21, 0.5);
-  }
-  50% { 
-    box-shadow: 0 0 40px rgba(250, 181, 21, 0.8), 0 0 60px rgba(250, 181, 21, 0.4);
-  }
-}
-
 @keyframes shimmer {
   0% { background-position: -1000px 0; }
   100% { background-position: 1000px 0; }
 }
 
+/* Hangar Animation Keyframes */
+@keyframes foundationAppear {
+  0% { 
+    opacity: 0;
+    transform: rotateX(65deg) translateZ(-12px) scaleX(0.3);
+  }
+  100% { 
+    opacity: 1;
+    transform: rotateX(65deg) translateZ(-12px) scaleX(1);
+  }
+}
+
+@keyframes wallAppearLeft {
+  0% { 
+    opacity: 0;
+    transform: skewY(-5deg) rotateY(-12deg) scaleY(0) translateY(20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: skewY(-5deg) rotateY(-12deg) scaleY(1) translateY(0);
+  }
+}
+
+@keyframes wallAppearRight {
+  0% { 
+    opacity: 0;
+    transform: skewY(5deg) rotateY(12deg) scaleY(0) translateY(20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: skewY(5deg) rotateY(12deg) scaleY(1) translateY(0);
+  }
+}
+
+@keyframes archAppear {
+  0% { 
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  60% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ribAppear {
+  0% { 
+    opacity: 0;
+    transform: scaleY(0) rotate(-5deg);
+  }
+  70% {
+    transform: scaleY(1.1) rotate(2deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: scaleY(1) rotate(0deg);
+  }
+}
+
+@keyframes doorAppear {
+  0% { 
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.8);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes windowAppear {
+  0% { 
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes lightAppear {
+  0% { 
+    opacity: 0;
+    transform: scale(0);
+    box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.8), inset 0 1px 1px rgba(255,255,255,0.3);
+  }
+}
+
+@keyframes craneAppear {
+  0% { 
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) rotate(-10deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes vehicleAppear {
+  0% { 
+    opacity: 0;
+    transform: translateX(40px) rotate(10deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Animation Classes */
+.foundation-appear {
+  animation: foundationAppear 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.wall-appear-left {
+  animation: wallAppearLeft 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.wall-appear-right {
+  animation: wallAppearRight 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.arch-appear {
+  animation: archAppear 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.rib-appear {
+  animation: ribAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.door-appear {
+  animation: doorAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.window-appear {
+  animation: windowAppear 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.light-appear {
+  animation: lightAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.crane-appear {
+  animation: craneAppear 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.vehicle-appear {
+  animation: vehicleAppear 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Base animation classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
@@ -132,10 +282,6 @@ html {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
-}
-
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
 }
 
 .animate-shimmer {
@@ -149,6 +295,7 @@ html {
   animation: shimmer 2s infinite;
 }
 
+/* 3D and perspective utilities */
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -162,7 +309,6 @@ html {
   transform: rotateX(60deg);
 }
 
-/* 3D transforms */
 .transform-3d {
   transform-style: preserve-3d;
 }
