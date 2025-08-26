@@ -99,7 +99,7 @@ export const HeroSection = () => {
           <div className="lg:ml-8">
             <div className="mb-8 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
               <div className="h-80">
-                <ProfessionalHangar />
+                <RealisticHangar />
               </div>
             </div>
             
