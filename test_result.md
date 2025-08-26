@@ -107,63 +107,78 @@ user_problem_statement: "создай крутой продающий сайт: 
 backend:
   - task: "Contact Form API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented POST /api/contact-form endpoint with Russian phone validation, email validation, and MongoDB storage. Includes proper error handling and Russian error messages."
+      - working: true
+        agent: "testing"
+        comment: "✅ COMPREHENSIVE TESTING PASSED: All Russian phone formats validated (+7 (918) 633-32-21, +79186333221, 89186333221, spaced, dashed). Email validation working correctly (valid emails pass, invalid emails return 422). Form submission with all fields and minimal fields both successful. Error handling proper for empty name, invalid phone, missing required fields. Database persistence confirmed with unique request IDs. API returns proper Russian success messages and estimated callback time."
 
   - task: "Company Info API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented GET /api/company-info endpoint returning CompanyInfo model with all company details including address, phone, working hours."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTING PASSED: Company info API returns all required fields correctly. Validated company name 'ООО «Ангастр»', phone '+7 (918) 633-32-21', email 'angastr@inbox.ru', address, working hours, tagline, and description. Response format matches expected CompanyInfo model structure."
 
   - task: "Services API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"  
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented GET /api/services endpoint returning 5 categories of services: Industrial, Commercial, Sports, Agricultural, Specialized hangars."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTING PASSED: Services API returns 5 service categories as expected: Промышленные объекты, Коммерческие объекты, Спортивные сооружения, Сельскохозяйственные объекты, Специализированные ангары. Each service has proper structure with id, category, and items array. All validation checks passed."
 
   - task: "Projects API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented GET /api/projects endpoint returning 3 sample projects with area, duration, and type information."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTING PASSED: Projects API returns 3 projects successfully: Складской комплекс 2400 м², Производственный цех 1800 м², Спортивный комплекс 3200 м². Each project contains all required fields: id, title, description, area, duration, type. Response structure validated and working correctly."
 
   - task: "Admin Contact Requests API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "low"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented GET /api/admin/contact-requests endpoint for viewing all submitted contact requests sorted by creation date."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTING PASSED: Admin contact requests API working correctly. Retrieved 11 existing contact requests from database, confirming database persistence from contact form submissions. Response format validated with proper structure including id, name, phone, status, created_at fields. API accessible and functioning as expected for admin panel."
 
 frontend:
   - task: "Hangar Animation"
