@@ -39,7 +39,8 @@ export const AnimeHangar = () => {
 
     // Сброс всех элементов
     const elements = containerRef.current.querySelectorAll('.anime-element');
-    anime.set(elements, {
+    animate({
+      targets: elements,
       opacity: 0,
       translateY: 20,
       translateX: 0,
@@ -48,7 +49,7 @@ export const AnimeHangar = () => {
     });
 
     // Главная timeline анимации
-    const tl = anime.timeline({
+    const tl = createTimeline({
       easing: 'easeOutExpo',
       duration: 800,
       complete: () => {
