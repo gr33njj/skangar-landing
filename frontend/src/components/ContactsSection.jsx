@@ -6,7 +6,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { useToast } from '../hooks/use-toast';
+import { toast } from 'sonner';
 import { submitContactForm } from '../services/api';
 
 // Static company info (will be replaced with API call later if needed)
